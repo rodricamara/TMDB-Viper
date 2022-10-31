@@ -12,7 +12,7 @@ final class MoviesListRouterMock: MoviesListRouterProtocol {
     
     var wasCalled = false
     
-    func presentNextVC(from view: MoviesBaseViewController, viewModel: MoviesResultViewModel) {
+    func handleMovieDetail(with viewModel: Movies.MoviesResultViewModel) {
         wasCalled = true
     }
 }

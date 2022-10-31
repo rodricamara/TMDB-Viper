@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MoviesListViewProtocol: MoviesBaseViewController {
+protocol MoviesListViewProtocol: AnyObject {
     func setUpView(viewModel: MoviesListViewModel?)
 }
 

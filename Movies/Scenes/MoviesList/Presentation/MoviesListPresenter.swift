@@ -48,10 +48,7 @@ extension MoviesListPresenter: MoviesListPresenterProtocol {
     }
     
     func onCellSelection(viewModel: MoviesResultViewModel) {
-        guard let view = view else {
-            return
-        }
-        router.presentNextVC(from: view, viewModel: viewModel)
+        router.handleMovieDetail(with: viewModel)
     }
 }
 

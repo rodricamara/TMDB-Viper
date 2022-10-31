@@ -29,7 +29,7 @@ extension MoviesListDependencyResolver: MoviesListDependencyResolverProtocol {
             params: params,
             interactor: resolveInteractor(),
             mapper: resolveViewModelMapper(),
-            router: resolveRouter())
+            router: resolveRouter(vc: view as? UIViewController))
     }
 }
 
@@ -55,7 +55,7 @@ private extension MoviesListDependencyResolver {
         return MoviesListDataSource(client: client)
     }
     
-    func resolveRouter() -> MoviesListRouterProtocol {
-        return MoviesListRouter()
+    func resolveRouter(vc: UIViewController?) -> MoviesListRouterProtocol {
+        return MoviesListRouter(vc: vc)
     }
 }

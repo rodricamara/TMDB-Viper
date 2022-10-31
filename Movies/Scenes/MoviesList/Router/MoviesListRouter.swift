@@ -8,14 +8,21 @@
 import UIKit
 
 protocol MoviesListRouterProtocol {
-    func presentNextVC(from view: MoviesBaseViewController, viewModel: MoviesResultViewModel)
+    func handleMovieDetail(with viewModel: MoviesResultViewModel)
 }
 
-final class MoviesListRouter {}
+final class MoviesListRouter {
+    
+    private weak var vc: UIViewController?
+    
+    init(vc: UIViewController?) {
+        self.vc = vc
+    }
+}
 
 extension MoviesListRouter: MoviesListRouterProtocol {
-    func presentNextVC(from view: MoviesBaseViewController, viewModel: MoviesResultViewModel) {
+    func handleMovieDetail(with viewModel: MoviesResultViewModel) {
         let targetVC = MovieDetailViewController(viewModel: viewModel)
-        view.navigationController?.pushViewController(targetVC, animated: true)
+        vc?.navigationController?.pushViewController(targetVC, animated: true)
     }
 }
